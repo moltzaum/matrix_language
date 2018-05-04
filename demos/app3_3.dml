@@ -1,0 +1,201 @@
+//create "linalg3.3.tex" titled "Linear Algebra Project: Application 3.3" for "Matthew Moltzau";
+//out => tex;
+
+"\nApplication 3.3\n" => out;
+
+"The initial problem in the textbook:" => out;
+
+A ::=
+[1 2 1 4]
+[3 8 7 20]
+[2 7 9 23];
+"A ::=" => out;
+A => out;
+
+A => rref;
+"Result:" => out;
+A => out;
+
+"\n
+Expected Result:   \n
+1 0 0 5            \n
+0 1 0 -2           \n
+0 0 1 3            \n
+" => out;
+
+"Numbered problems from the textbook:" => out;
+
+"\n1:" => out;
+
+A ::=
+[17 42 -36 213]
+[13 45 -34 226]
+[12 47 -35 197];
+A => out;
+
+//rref without double will just truncate the integers
+A => double;
+A => rref;
+A => int;
+"rref:" => out;
+A => out;
+
+"\n
+Expected Result: \n
+1 0 0 39\n
+0 1 0 27\n
+0 0 1 44\n
+" => out;
+pause;
+
+
+"\n2:" => out;
+
+A ::=
+[32 57 -41 713]
+[23 43 -37 130]
+[42 -61 39 221];
+A => out;
+
+A => double;
+A => rref;
+A => int;
+"rref:" => out;
+A => out;
+
+"\n
+Expected Result: \n
+1 0 0 17\n
+0 1 0 49\n
+0 0 1 64\n
+" => out;
+pause;
+
+
+"\n3:" => out;
+
+A ::=
+[231 157 -241 420]
+[323 181 -376 412]
+[542 161 -759 419];
+A => out;
+
+A => double;
+A => rref;
+//A => int;
+"rref:" => out;
+A => out;
+
+"\n
+Expected Result: \n
+1 0 0  38.35\n
+0 1 0 -18.63\n
+0 0 1  22.89\n
+" => out;
+pause;
+
+
+"\n4:" => out;
+
+A ::=
+[837 667 -729 1659]
+[152 -179 -975 1630]
+[542 328 -759 1645];
+A => out;
+
+A => double;
+A => rref;
+A => int;
+"rref:" => out;
+A => out;
+
+"\n
+Expected Result: \n
+1 0 0  77\n
+0 1 0 -69\n
+0 0 1  23\n
+" => out;
+pause;
+
+"\n5:" => out;
+
+A ::=
+[49 -57  37 -59 97]
+[73 -15 -19 -22 99]
+[52 -51 14 -29 89]
+[13 -27 27 -25 73];
+A => out;
+
+A => double;
+A => rref;
+A => int;
+"rref:" => out;
+A => out;
+
+"\n
+Expected Result: \n
+1 0 0 0 5\n
+0 1 0 0 3\n
+0 0 1 0 7\n
+0 0 0 1 4\n
+" => out;
+pause;
+
+
+"\n6:" => out;
+
+A ::=
+[64 -57 97 -67 485]
+[92 77 -34 -37 486]
+[44 -34 53 -34 465]
+[27  57 -69 29 464];
+A => out;
+
+A => double;
+A => rref;
+A => int;
+"rref:" => out;
+A => out;
+
+"\n
+Expected Result: \n
+1 0 0 0 17\n
+0 1 0 0 23\n
+0 0 1 0 37\n
+0 0 0 1 43\n
+" => out;
+
+/*
+1.
+    17x + 42y - 36z = 213;
+    13x + 45y - 34z = 226;
+    12x + 47y - 35z = 197;
+
+2.
+    32x + 57y - 41z = 713;
+    23x + 43y - 37z = 130;
+    42x - 61y + 39z = 221;
+
+3.
+    231x + 157y - 241z = 420;
+    323x + 181y - 376z = 412;
+    542x + 161y - 759z = 419;
+
+4.
+    837x + 667y - 729z = 1659;
+    152x - 179y - 975z = 1630;
+    542x + 328y - 759z = 1645;
+    
+5.
+    49w - 57x + 37y - 59z = 97;
+    73w - 15x - 19y - 22z = 99;
+    52w - 51w + 14y - 29z = 89;
+    13w - 27x + 27y - 25z = 73;
+    
+6.
+    64w - 57x + 97y - 67z = 485;
+    92w + 77x - 34y - 37z = 486;
+    44w - 34x + 53y - 34z = 465;
+    27w + 57x - 69y + 29z = 464;
+
+*/

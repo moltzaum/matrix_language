@@ -1,0 +1,109 @@
+"\nApplication 3.5" => out;
+
+// b is the list of coefficients (column form)
+// A is a system of equations
+// x is a matrix showing the result
+//x = A^-1 x b
+
+/*
+3w - 2x + 7y + 5z = 505;
+2w + 4x -  y + 6z = 435;
+5w +  x + 7y - 3z = 286;
+4w - 6x - 8y + 9z = 445;
+
+The solution is:
+w = 59,
+x = 13,
+y = 17,
+z = 47
+*/
+
+/*
+The equations from application 3.3 are mentioned. At first I thought they
+wanted to rref the matrix in a standard way, but I think now they want to
+show the inverse method.
+*/
+
+/*
+
+GOLD COINS
+1.
+    You are walking down the street minding your own business when you spot a
+    small but heavy leather bag lying on the sidewalk. It turns out to contain
+    U.S. Mint American Eagle gold coins of the following types:
+    
+    * One-half ounce gold coins that sell for $258 each,
+    * One-quarter ounce gold coins that sell for $150 each, and
+    * One-tenth ounce gold coins that sell for $70 each.
+    
+    A bank receipt in the bag certifies that it contains 258 such coins with a
+    total weight of 67 ounces and a total value of exactly $40,145. How many
+    coins of each type are there?
+    
+2.
+    Now you really strike it rich! You find a bag containing one-ounce U.S.
+    American gold coins valued at $550 each, together with half-ounce and
+    quarter-ounce coins valued as in the previous problem. If this bag
+    contains a total of 365 coins with a total weight of exactly 11 lbs and
+    a total value of $100,130, how many gold coins of each type are there?
+
+PAINT
+3. 
+    A commercial customer orders 81 gallons of paint that contains equal
+    amounts of red paint, green paint, and blue paint--and, hence, could
+    be prepared by mixing three types of paint that are already available
+    in large quantity:
+    
+    * a reddish paint that is a mixture of 50% red, 25% green, and 25% blue paint;
+    * a greenish paint that is 12.5% red, 75% green, and 12.5% blue paint; and
+    * a bluish paint that is 20% red, 20% green, and 60% blue paint.
+    
+    How many gallons of each are needed to prepare the customer's order?
+
+4.
+    Now the paint store receives a really big order--for 244 gallons of paint
+    that is 1/2 red paint, 1/4 green paint, and 1/4 blue paint. The store has
+    three already-mixed types of paint available in large quantity--the greenish
+    paint and the bluish paint of the previous problem, plus a reddish paint that
+    is 2/3 red paint, 1/6 green paint, and 1/6 blue paint. How many gallons of
+    each must be mixed in order to fill this order?
+
+FAST FOOD
+7.
+    A fast-food restaurant sells four types of sandwiches--hamburgers, cheesburg-
+    ers, roast beef, and chicken--and has four cash registers. At the end of each
+    day, each cash register tallies the number of each type of sandwich sold, and
+    the total sandwich receipts for the day. The four cash register operators work
+    at different speeds, and one day's totals were as follows:
+    
+                    Hamburgers      Cheeseburgers       Roast Beef      Chicken     Receipts
+    
+    Register 1          37               44                 17             23       $232.99
+    Register 2          28               35                 13             17       $178.97
+    Register 3          32               39                 19             21       $215.99
+    Register 4          47               51                 25             29       $294.38
+    
+    What was the price of each of the four types of sandwiches?
+    
+8.
+    The fast-food restaurant of the preceding problem adds a ham sandwich to its
+    menu and, because of increased business, it also adds a fifth cash register
+    and reduces prices. After this expansion, one day's totals were as follows:
+    
+                   Hamburgers      Cheeseburgers       Roast Beef      Chicken     Ham      Receipts
+    
+    Register 1          41               49                 22             26       19      $292.79
+    Register 2          34               39                 18             20       16      $236.73
+    Register 3          36               43                 23             24       18      $270.70
+    Register 4          49               52                 26             31       24      $340.19
+    Register 5          52               55                 24             28       25      $341.64
+    
+CIRCUIT PROBLEM
+    
+    I currently do not support unknown variables (R1, R2, R3, ɛ1, ɛ2 in this case)
+    ɛ1 - i1 R1 + i3 R3 = 0
+    ɛ2 + i2 R2 + i3 R3 = 0
+    i1 + i3 = i2
+
+*/
+

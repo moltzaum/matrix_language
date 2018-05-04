@@ -1,0 +1,72 @@
+/*
++ - * /
+int, double, identifier
+e, pi
+matrix production
+Iden => out
+"str" => out
+
+Assignment operator '=' and set operator '->'
+do the same thing, but each in different directions.
+
+Row Swap:  A[i] <-> A[j]
+Row Expr:  k * A[i]; A[i] / k
+
+//TODO casting? (like: (int) one * 0.5 or int(one * 0.5))
+//TODO let variable hold row?
+//TODO deep copy when assigning one matrix to another
+//TODO R[2] does not give proper error if R is not defined
+*/
+
+/*
+"Casting Result:" => out;
+A => double;
+A => out;
+
+"Casting Result:" => out;
+A => int;
+A => out;
+
+//Integer vs Division
+A[1] / 2 -> A[2];
+A => out;
+
+A ::=
+[1.0 2.0 1.0  4.0] 
+[3.0 8.0 7.0 20.0]
+[2.0 7.0 9.0 23.0];
+
+A[1] / 2 -> A[1];
+A => out;
+*/
+
+/*
+create "linalg.tex" titled "Linear Algebra Test" for "Matthew Moltzau";
+
+"This is still the same test" => tex;
+
+"$ (\\Gamma, \\psi') = x'' + y^{2} + z_{i}^{n} $" => tex;
+
+A => tex;
+
+close tex;
+*/
+
+//A[i] = A[i] + k * A[i+1];
+//A[0] + k * A[1] -> A[0];
+
+/*
+A ::=
+[0 1 2]
+[2 1 0];
+
+"\nA ::=" => out;
+A => out;
+
+B ::=
+[0 0 1]
+[0 1 0];
+
+"\nThe row is:" => out;
+A[0] - B[0] + B[1] => out;
+*/

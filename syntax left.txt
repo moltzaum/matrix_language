@@ -1,0 +1,16 @@
+//Dimension and column space:
+dim (A)
+Null (A)
+Row (A)
+Col (A)
+
+//Matrix Matrix Rules:
+Dot Product      A * B		same size matrix
+Cross Product    A x B		b == c for: [a][b] x [c][d]
+Addition         A + B		same size matrix
+Subtraction      A - B		same size matrix
+
+//Other Matrix Functions:
+Transpose         A^T
+Inverse           A^-1
+Determinant       det(A)

@@ -1,0 +1,10 @@
+obj/Absyn.o
+obj/Enviroment.o
+obj/Latex.o
+obj/Lexer.o
+obj/Matrix.o
+obj/Parser.o
+obj/Printer.o
+obj/Skeleton.o
+obj/main.o
+dml

@@ -1,0 +1,233 @@
+\documentclass{article} 
+ \usepackage[fleqn]{amsmath}
+ \usepackage{titlesec}
+ \setlength\mathindent{0pt}
+ \title{Declarative Matrix Language: Linear Algebra Project} 
+ \author{Matthew Moltzau} 
+ \date{\today} 
+ \begin{document} 
+ \maketitle 
+ \begin{flushleft}
+
+\section*{Introduction}
+
+I implemented my own language for the creation, manipulation, and output of two-dimensional
+matrices. It is called `dml', which is short for `Declarative Matrix Language'. For more
+information on dml, check the pdf titled `Language Documentation of dml'.
+
+%Project Description
+%Program Syntax
+%Current Implementation Progress
+%Application Problems
+%Challenges
+
+\section*{Application 3.2}
+
+Application 3.2 introduces automated row operations with Matlab, Mathematica, and Mable.
+Using my program, I was able to represent the same row operations and get the same results.
+The output has been re-formatted for this document.
+\newline
+
+Normally, there are some restrictions placed on row operations, including that a row
+shouldn't be multiplied by 0. In my implementation there are no such constraints and
+I tried to make it so that the rows could be visualized as a part of a flexible expression
+instead of having to call a function followed by a list of parameters.
+\newline
+
+
+A ::=
+\[
+\begin{bmatrix}
+1  & 2  & 1  & 4 \\
+3  & 8  & 7  & 20 \\
+2  & 7  & 9  & 23 \\
+\end{bmatrix} 
+\]
+
+Performing row operations:   \newline \newline
+$A[1] - 3 * A[0] \rightarrow A[1];$     \newline
+$A[2] - 2 * A[0] \rightarrow A[2];$     \newline
+$A[1] / 2 \rightarrow A[1];       $     \newline
+$A[2] - 3 * A[1] \rightarrow A[2];$     \newline
+
+
+Result of row operations:
+\[ 
+\begin{bmatrix}
+1  & 2  & 1  & 4 \\
+0  & 1  & 2  & 4 \\
+0  & 0  & 1  & 3 \\
+\end{bmatrix} 
+ \]
+
+Swapping is also a row operation, despite it not being used above. Using the previous form,
+we can now swap A[0] and A[2] to allow forward-substitution instead of back-substitution.
+\newline
+
+
+Result of swapping rows:
+\[ 
+\begin{bmatrix}
+0  & 0  & 1  & 3 \\
+0  & 1  & 2  & 4 \\
+1  & 2  & 1  & 4 \\
+\end{bmatrix} 
+ \]
+
+
+
+%\sectionbreak
+%\clearpage
+\section*{Application 3.3}
+
+After getting the basic row operations complete, row reduction becomes possible to implement.
+In my language, row reduction works best with decimal values instead of integers (the integer
+values become truncated). When I set up the problem in a script, I created an integer matrix
+first and had to cast it to decimal. After the computation was complete I casted it back to
+an integer matrix to get prettier output.
+\newline
+
+The first example is the same matrix from Application 3.2, except we are interested in the
+fully-reduced row echelon form.
+\newline
+
+A ::=
+\[ 
+\begin{bmatrix} 
+1  & 2  & 1  & 4 \\
+3  & 8  & 7  & 20 \\
+2  & 7  & 9  & 23 \\
+\end{bmatrix} 
+ \]
+rref:
+\[ 
+\begin{bmatrix} 
+1  & 0  & 0  & 5 \\
+0  & 1  & 0  & -2 \\
+0  & 0  & 1  & 3 \\
+\end{bmatrix} 
+ \]
+
+
+There are six systems of equations given in the textbook. I checked to make sure they are
+all correct. \newline
+
+
+Matrix 1:
+\[ 
+\begin{bmatrix} 
+17  & 42  & -36  & 213 \\
+13  & 45  & -34  & 226 \\
+12  & 47  & -35  & 197 \\
+\end{bmatrix} 
+ \]
+rref:
+\[ 
+\begin{bmatrix} 
+1  & 0  & 0  & 39 \\
+0  & 1  & 0  & 27 \\
+0  & 0  & 1  & 44 \\
+\end{bmatrix} 
+ \]
+
+
+Matrix 2:
+\[ 
+\begin{bmatrix} 
+32  & 57  & -41  & 713 \\
+23  & 43  & -37  & 130 \\
+42  & -61  & 39  & 221 \\
+\end{bmatrix} 
+ \]
+rref:
+\[ 
+\begin{bmatrix} 
+1  & 0  & 0  & 17 \\
+0  & 1  & 0  & 49 \\
+0  & 0  & 1  & 64 \\
+\end{bmatrix} 
+ \]
+
+
+Matrix 3:
+\[ 
+\begin{bmatrix} 
+231  & 157  & -241  & 420 \\
+323  & 181  & -376  & 412 \\
+542  & 161  & -759  & 419 \\
+\end{bmatrix} 
+ \]
+rref:
+\[ 
+\begin{bmatrix} 
+1.000000  & -0.000000  & -0.000000  & 38.358214 \\
+0.000000  & 1.000000  & 0.000000  & -18.629199 \\
+-0.000000  & -0.000000  & 1.000000  & 22.887814 \\
+\end{bmatrix} 
+ \]
+
+
+Matrix 4:
+\[ 
+\begin{bmatrix} 
+837  & 667  & -729  & 1659 \\
+152  & -179  & -975  & 1630 \\
+542  & 328  & -759  & 1645 \\
+\end{bmatrix} 
+ \]
+rref:
+\[ 
+\begin{bmatrix} 
+1  & 0  & 0  & 77 \\
+0  & 1  & 0  & -69 \\
+0  & 0  & 1  & 23 \\
+\end{bmatrix} 
+ \]
+
+
+Matrix 5:
+\[ 
+\begin{bmatrix} 
+49  & -57  & 37  & -59  & 97 \\
+73  & -15  & -19  & -22  & 99 \\
+52  & -51  & 14  & -29  & 89 \\
+13  & -27  & 27  & -25  & 73 \\
+\end{bmatrix} 
+ \]
+rref:
+\[ 
+\begin{bmatrix} 
+1  & 0  & 0  & 0  & 5 \\
+0  & 1  & 0  & 0  & 3 \\
+0  & 0  & 1  & 0  & 7 \\
+0  & 0  & 0  & 1  & 4 \\
+\end{bmatrix} 
+ \]
+
+
+Matrix 6:
+\[ 
+\begin{bmatrix} 
+64  & -57  & 97  & -67  & 485 \\
+92  & 77  & -34  & -37  & 486 \\
+44  & -34  & 53  & -34  & 465 \\
+27  & 57  & -69  & 29  & 464 \\
+\end{bmatrix} 
+ \]
+rref:
+\[ 
+\begin{bmatrix} 
+1  & 0  & 0  & 0  & 17 \\
+0  & 1  & 0  & 0  & 23 \\
+0  & 0  & 1  & 0  & 37 \\
+0  & 0  & 0  & 1  & 43 \\
+\end{bmatrix} 
+ \]
+
+
+\section*{Application 3.5}
+I was not able to get to Application 3.5.
+
+
+\end{flushleft}
+\end{document}

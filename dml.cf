@@ -1,0 +1,84 @@
+comment "//" ;
+comment "/*" "*/" ;
+
+{-
+A program is a list of statements, which are further described below.
+Each statement is delimited by a semicolon.
+-}
+Prog. Program ::= [Stm] ;
+terminator Stm ";" ;
+
+{-
+These are to aid the creation of tex files. The output is subpar, but
+still automates a lot. The statement "out => tex" makes it so that all
+regular output will be output into the generated tex file.
+-}
+InitTex.  Stm ::= "create" String "titled" String "for" String;
+OutTex.   Stm ::= Ident  "=>" "tex" ;
+SOutTex.  Stm ::= String "=>" "tex" ;
+CloseTex. Stm ::= "close" "tex"     ;
+Redirect. Stm ::= "out" "=>" "tex" ;
+
+{-
+Regular out statements. Rows and strings have their own out statements
+because they aren't types that my variables support.
+-}
+Print.  Stm ::= Ident  "=>" "out" ;
+SPrint. Stm ::= String "=>" "out" ;
+RPrint. Stm ::= Row    "=>" "out" ;
+
+--Matrix and Row Creation
+PMat. Stm ::= Ident "::=" [Row] ;
+PRow. Row ::= "[" [Exp] "]" ;
+separator Exp "" ;
+separator Row "" ;
+
+{-
+Common Mul seems to fix the shift/reduce conflict, but 1) I don't fully understand what
+the program finds ambiguous 2) It isn't causing me problems now 3) I would have to change
+some of the internal structure if I used this and 4) I think it would make the grammar
+less clear.
+-}
+--CMul. Mul ::= Exp1 "*" ;
+--RMul. Row ::= Mul Row1 ;
+--EMul.  Exp1 ::= Mul Exp2 ;
+
+--Matrix and Row Operations
+RAdd.  Row  ::= Row  "+" Row1 ;
+RSub.  Row  ::= Row  "-" Row1 ;
+RMul.  Row1 ::= Exp2 "*" Row2 ;
+RDiv.  Row1 ::= Row2 "/" Exp2 ;
+RMul2. Row1 ::= Row1 "*" Exp2 ;
+SMat.  Row2 ::= Ident "[" Exp "]" ;
+RSwp.  Stm ::= Row "<->" Row ;
+RSet.  Stm ::= Row "->" Row  ;
+RAss.  Stm ::= Row "=" Row ;
+Rref.  Stm ::= Ident "=>" "rref" ;
+Ref.   Stm ::= Ident "=>" "ref"  ;
+coercions Row 2;
+
+--SInteger just means "signed integer"
+token SInteger (('-')? digit+);
+
+--Regular Mathematical Expressions
+AVar.  Stm  ::= Ident "=" Exp ;
+EAdd.  Exp  ::= Exp  "+" Exp1  ;
+ESub.  Exp  ::= Exp  "-" Exp1  ;
+EMul.  Exp1 ::= Exp1 "*" Exp2  ;
+EDiv.  Exp1 ::= Exp1 "/" Exp2  ;
+ESInt. Exp2 ::= SInteger ;
+EDob.  Exp2 ::= Double  ;
+EIden. Exp2 ::= Ident   ;
+
+--Misc:
+CDoub. Stm ::= Ident "=>" "double";
+CInt.  Stm ::= Ident "=>" "int";
+Pause. Stm ::= "pause" ;
+
+--Predefined Constants
+ConstE.  Exp2 ::= "e"  ;
+ConstPI. Exp2 ::= "pi" ;
+--IdenMat. Exp2 ::= "I"
+
+coercions Exp 2 ;
+
